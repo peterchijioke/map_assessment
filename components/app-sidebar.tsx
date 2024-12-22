@@ -21,7 +21,7 @@ import {
 } from "./ui/collapsible";
 import Link from "next/link";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
-import { ChevronRight, LogOut } from "lucide-react";
+import { ChevronRight, ChevronUp, LogOut } from "lucide-react";
 
 interface SidebarItem {
   title: string;
@@ -124,7 +124,7 @@ export function AppSidebar() {
                       defaultOpen
                       className="group/collapsible"
                     >
-                      <SidebarMenuItem>
+                      <SidebarMenuItem key={item.title}>
                         <CollapsibleTrigger
                           className=" hover:bg-[#E3EAFB] hover:text-[#344054]"
                           asChild
@@ -138,7 +138,7 @@ export function AppSidebar() {
                               />
                             )}
                             <span>{item.title}</span>
-                            <ChevronRight className="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
+                            <ChevronUp className="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-180" />
                           </SidebarMenuButton>
                         </CollapsibleTrigger>
                         {item.subItems.map((item) => (
