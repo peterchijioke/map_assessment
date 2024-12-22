@@ -1,67 +1,116 @@
-import { Calendar, Home, Inbox, Search, Settings } from "lucide-react";
-
 import {
   Sidebar,
   SidebarContent,
+  SidebarFooter,
   SidebarGroup,
   SidebarGroupContent,
-  SidebarGroupLabel,
+  SidebarHeader,
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
+  SidebarMenuSub,
+  SidebarMenuSubItem,
 } from "@/components/ui/sidebar";
+import CustomImage from "./CustomImage";
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "./ui/collapsible";
 
-// Menu items.
-const items = [
+interface SidebarItem {
+  title: string;
+  url: string;
+  icon: string;
+}
+const items: Array<SidebarItem> = [
   {
-    title: "Home",
+    title: "Dashboard",
     url: "#",
-    icon: Home,
+    icon: "/grid-2.svg",
   },
   {
-    title: "Inbox",
+    title: "Inventory",
     url: "#",
-    icon: Inbox,
+    icon: "/box.svg",
+  },
+  {
+    title: "Procurement",
+    url: "#",
+    icon: "/cart.svg",
+  },
+  {
+    title: "Communication",
+    url: "#",
+    icon: "/chats.svg",
   },
   {
     title: "Calendar",
     url: "#",
-    icon: Calendar,
+    icon: "/calendar-alt.svg",
   },
   {
-    title: "Search",
+    title: "Contracts",
     url: "#",
-    icon: Search,
-  },
-  {
-    title: "Settings",
-    url: "#",
-    icon: Settings,
+    icon: "/sign-doc.svg",
   },
 ];
 
 export function AppSidebar() {
   return (
     <Sidebar>
+      <SidebarHeader>
+        <div className=" py-8">
+          <CustomImage alt="" src={"/logo.svg"} className="" />
+        </div>
+      </SidebarHeader>
       <SidebarContent>
         <SidebarGroup>
-          <SidebarGroupLabel>Application</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
-              {items.map((item) => (
-                <SidebarMenuItem key={item.title}>
-                  <SidebarMenuButton asChild>
-                    <a href={item.url}>
-                      <item.icon />
-                      <span>{item.title}</span>
-                    </a>
-                  </SidebarMenuButton>
-                </SidebarMenuItem>
-              ))}
+              {items.map((item) => {
+                if (item.title === "Procurement") {
+                  return (
+                    <Collapsible defaultOpen className="group/collapsible">
+                      <SidebarMenuItem>
+                        <CollapsibleTrigger asChild>
+                          <SidebarMenuButton />
+                        </CollapsibleTrigger>
+                        <CollapsibleContent>
+                          <SidebarMenuSub>
+                            <SidebarMenuSubItem />
+                          </SidebarMenuSub>
+                        </CollapsibleContent>
+                      </SidebarMenuItem>
+                    </Collapsible>
+                  );
+                }
+                return (
+                  <SidebarMenuItem key={item.title}>
+                    <SidebarMenuButton asChild>
+                      <a href={item.url}>
+                        <CustomImage
+                          alt=""
+                          src={item.icon}
+                          className=" size-5"
+                        />
+                        <span>{item.title}</span>
+                      </a>
+                    </SidebarMenuButton>
+                  </SidebarMenuItem>
+                );
+              })}
             </SidebarMenu>
           </SidebarGroupContent>
         </SidebarGroup>
       </SidebarContent>
+      <SidebarFooter>
+        <SidebarMenu>
+          <SidebarMenuItem>
+            <div className=" h-16 bg-slate-500 w-full"></div>
+          </SidebarMenuItem>
+        </SidebarMenu>
+      </SidebarFooter>
     </Sidebar>
   );
 }
