@@ -7,9 +7,9 @@ import TermsAttachments from "../_components/TermsAttachments";
 
 export default function Page() {
   return (
-    <div className="w-full h-full grid  bg-slate-500">
+    <div className="w-full h-full flex flex-col ">
       <MainHeader />
-      <ScrollArea className=" h-screen pb-32 bg-white mt-1">
+      <ScrollArea className="flex-1 w-full h-full pb-32 bg-white mt-1">
         <div className="flex flex-1 flex-col gap-8 container mx-auto p-4">
           <DashboardTopSection />
           <DashboardQuoteInformation />

@@ -11,6 +11,7 @@ import {
   BreadcrumbItem,
   BreadcrumbPage,
 } from "./ui/breadcrumb";
+import { SidebarTrigger } from "./ui/sidebar";
 
 type Props = {};
 
@@ -22,9 +23,12 @@ export default function MainHeader({}: Props) {
   };
 
   return (
-    <header className="flex bg-red-600 justify-between flex-row w-full py-4  gap-2 transition-[width,height] ease-linear group-has-[[data-collapsible=icon]]/sidebar-wrapper:h-12">
+    <header className="flex justify-between flex-row w-full py-4  gap-2 transition-[width,height] ease-linear group-has-[[data-collapsible=icon]]/sidebar-wrapper:h-12">
       <div className="flex items-center gap-2 container mx-auto  justify-between">
         <div className="flex items-center gap-2 px-4 md:px-0 ">
+          <div className="md:hidden block">
+            <SidebarTrigger />
+          </div>
           <Breadcrumb>
             <BreadcrumbList>
               <ChevronLeft className="size-4" />

@@ -36,8 +36,11 @@ export default function RootLayout({
         <SidebarProvider>
           <AppSidebar />
           <SidebarInset>
-            <SidebarTrigger />
-            <main className=" flex flex-row justify-center">{children}</main>
+            <main className=" w-full h-full flex">
+              <div className="w-full h-full flex justify-center items-center">
+                {children}
+              </div>
+            </main>
           </SidebarInset>
         </SidebarProvider>
       </body>
