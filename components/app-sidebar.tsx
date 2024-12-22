@@ -6,9 +6,11 @@ import {
   SidebarGroupContent,
   SidebarHeader,
   SidebarMenu,
+  SidebarMenuBadge,
   SidebarMenuButton,
   SidebarMenuItem,
   SidebarMenuSub,
+  SidebarMenuSubButton,
   SidebarMenuSubItem,
 } from "@/components/ui/sidebar";
 import CustomImage from "./CustomImage";
@@ -17,11 +19,16 @@ import {
   CollapsibleContent,
   CollapsibleTrigger,
 } from "./ui/collapsible";
+import Link from "next/link";
+import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
+import { ChevronRight, LogOut } from "lucide-react";
 
 interface SidebarItem {
   title: string;
   url: string;
   icon: string;
+  subItems?: Array<SidebarItem>;
+  value?: number;
 }
 const items: Array<SidebarItem> = [
   {
@@ -38,14 +45,45 @@ const items: Array<SidebarItem> = [
     title: "Procurement",
     url: "#",
     icon: "/cart.svg",
+    subItems: [
+      {
+        title: "Quotes",
+        url: "#",
+        icon: "/box.svg",
+      },
+      {
+        title: "Orders",
+        url: "#",
+        icon: "/box.svg",
+      },
+    ],
+  },
+  {
+    title: "Finance",
+    url: "#",
+    icon: "/money-1.svg",
+    subItems: [
+      {
+        title: "Money",
+        url: "#",
+        icon: "/box.svg",
+      },
+      {
+        title: "More",
+        url: "#",
+        icon: "/box.svg",
+      },
+    ],
   },
   {
     title: "Communication",
     url: "#",
     icon: "/chats.svg",
+    value: 10,
   },
   {
     title: "Calendar",
+    value: 10,
     url: "#",
     icon: "/calendar-alt.svg",
   },
@@ -54,13 +92,23 @@ const items: Array<SidebarItem> = [
     url: "#",
     icon: "/sign-doc.svg",
   },
+  {
+    title: "Support",
+    url: "#",
+    icon: "/question-circle.svg",
+  },
+  {
+    title: "Settings",
+    url: "#",
+    icon: "/settings.svg",
+  },
 ];
 
 export function AppSidebar() {
   return (
-    <Sidebar>
+    <Sidebar className="">
       <SidebarHeader>
-        <div className=" py-8">
+        <div className=" py-6">
           <CustomImage alt="" src={"/logo.svg"} className="" />
         </div>
       </SidebarHeader>
@@ -69,36 +117,75 @@ export function AppSidebar() {
           <SidebarGroupContent>
             <SidebarMenu>
               {items.map((item) => {
-                if (item.title === "Procurement") {
+                if (item?.subItems) {
                   return (
-                    <Collapsible defaultOpen className="group/collapsible">
+                    <Collapsible
+                      key={item.title}
+                      defaultOpen
+                      className="group/collapsible"
+                    >
                       <SidebarMenuItem>
-                        <CollapsibleTrigger asChild>
-                          <SidebarMenuButton />
+                        <CollapsibleTrigger
+                          className=" hover:bg-[#E3EAFB] hover:text-[#344054]"
+                          asChild
+                        >
+                          <SidebarMenuButton tooltip={item.title}>
+                            {item.icon && (
+                              <CustomImage
+                                alt=""
+                                src={item.icon}
+                                className=" size-5"
+                              />
+                            )}
+                            <span>{item.title}</span>
+                            <ChevronRight className="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
+                          </SidebarMenuButton>
                         </CollapsibleTrigger>
-                        <CollapsibleContent>
-                          <SidebarMenuSub>
-                            <SidebarMenuSubItem />
-                          </SidebarMenuSub>
-                        </CollapsibleContent>
+                        {item.subItems.map((item) => (
+                          <CollapsibleContent>
+                            <SidebarMenuSub>
+                              <SidebarMenuSubItem>
+                                <SidebarMenuSubButton
+                                  className=" hover:bg-[#E3EAFB] hover:text-[#344054]"
+                                  asChild
+                                >
+                                  <Link href={item.url}>
+                                    <span>{item.title}</span>
+                                  </Link>
+                                </SidebarMenuSubButton>
+                              </SidebarMenuSubItem>
+                            </SidebarMenuSub>
+                          </CollapsibleContent>
+                        ))}
                       </SidebarMenuItem>
                     </Collapsible>
                   );
                 }
-                return (
-                  <SidebarMenuItem key={item.title}>
-                    <SidebarMenuButton asChild>
-                      <a href={item.url}>
-                        <CustomImage
-                          alt=""
-                          src={item.icon}
-                          className=" size-5"
-                        />
-                        <span>{item.title}</span>
-                      </a>
-                    </SidebarMenuButton>
-                  </SidebarMenuItem>
-                );
+                if (item.title !== "Settings" && item.title !== "Support") {
+                  return (
+                    <SidebarMenuItem key={item.title}>
+                      <SidebarMenuButton
+                        className=" hover:bg-[#E3EAFB] hover:text-[#344054]"
+                        asChild
+                      >
+                        <Link href={item.url}>
+                          <CustomImage
+                            alt=""
+                            src={item.icon}
+                            className=" size-5"
+                          />
+                          <span>{item.title}</span>
+                        </Link>
+                      </SidebarMenuButton>
+                      {item?.value && (
+                        <SidebarMenuBadge className=" bg-blue-600 rounded-3xl px-2 text-white">
+                          {item.value}
+                        </SidebarMenuBadge>
+                      )}
+                    </SidebarMenuItem>
+                  );
+                }
+                return null;
               })}
             </SidebarMenu>
           </SidebarGroupContent>
@@ -106,8 +193,42 @@ export function AppSidebar() {
       </SidebarContent>
       <SidebarFooter>
         <SidebarMenu>
+          {items.map((item) => {
+            if (item.title === "Settings" || item.title === "Support") {
+              return (
+                <SidebarMenuItem key={item.title}>
+                  <SidebarMenuButton
+                    className=" hover:bg-[#E3EAFB] hover:text-[#344054]"
+                    asChild
+                  >
+                    <Link href={item.url}>
+                      <CustomImage alt="" src={item.icon} className=" size-5" />
+                      <span>{item.title}</span>
+                    </Link>
+                  </SidebarMenuButton>
+                </SidebarMenuItem>
+              );
+            }
+          })}
           <SidebarMenuItem>
-            <div className=" h-16 bg-slate-500 w-full"></div>
+            <div className=" py-4 w-full flex-row flex items-center justify-between">
+              <div className="flex items-center gap-2">
+                <Avatar>
+                  <AvatarImage
+                    src="https://github.com/shadcn.png"
+                    alt="profile"
+                  />
+                  <AvatarFallback>CN</AvatarFallback>
+                </Avatar>
+                <div className="grid flex-1 text-left text-sm leading-tight">
+                  <span className="truncate font-semibold">Mark Benson</span>
+                  <span className="truncate text-xs">
+                    markbenson@coremed.com
+                  </span>
+                </div>
+              </div>
+              <LogOut />
+            </div>
           </SidebarMenuItem>
         </SidebarMenu>
       </SidebarFooter>
