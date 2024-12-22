@@ -120,7 +120,7 @@ export function AppSidebar() {
                 if (item?.subItems) {
                   return (
                     <Collapsible
-                      key={item.title}
+                      key={item.title + String(i)}
                       defaultOpen
                       className="group/collapsible"
                     >

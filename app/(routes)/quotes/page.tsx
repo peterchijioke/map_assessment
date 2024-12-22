@@ -1,8 +1,8 @@
 import MainHeader from "@/components/MainHeader";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import DashboardTopSection from "../_components/DashboardTopSection";
 import DashboardQuoteTopSection from "./_components/DashboardQuoteTopSection";
 import DashboardQuoteInfoSection from "./_components/DashboardQuoteInfoSection";
+import RequestForQuote from "./_components/RequestForQuote";
 
 export default function Page() {
   return (
@@ -12,6 +12,7 @@ export default function Page() {
         <div className="flex flex-1 flex-col gap-8 container mx-auto p-4">
           <DashboardQuoteTopSection />
           <DashboardQuoteInfoSection />
+          <RequestForQuote />
         </div>
       </ScrollArea>
     </div>
