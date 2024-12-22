@@ -37,7 +37,7 @@ export default function RootLayout({
           <AppSidebar />
           <SidebarInset>
             <SidebarTrigger />
-            <main className=" grid bg-red-600">{children}</main>
+            <main className=" flex flex-row justify-center">{children}</main>
           </SidebarInset>
         </SidebarProvider>
       </body>
