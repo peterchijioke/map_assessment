@@ -48,7 +48,7 @@ const items: Array<SidebarItem> = [
     subItems: [
       {
         title: "Quotes",
-        url: "#",
+        url: "/quotes",
         icon: "/box.svg",
       },
       {
