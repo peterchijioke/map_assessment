@@ -34,11 +34,10 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <SidebarProvider>
-          <SidebarInset />
           <AppSidebar />
           <SidebarInset>
             <SidebarTrigger />
-            <main>{children}</main>
+            <main className=" grid bg-red-600">{children}</main>
           </SidebarInset>
         </SidebarProvider>
       </body>
