@@ -116,7 +116,7 @@ export function AppSidebar() {
         <SidebarGroup>
           <SidebarGroupContent>
             <SidebarMenu>
-              {items.map((item) => {
+              {items.map((item, i) => {
                 if (item?.subItems) {
                   return (
                     <Collapsible
@@ -124,7 +124,7 @@ export function AppSidebar() {
                       defaultOpen
                       className="group/collapsible"
                     >
-                      <SidebarMenuItem key={item.title}>
+                      <SidebarMenuItem key={item.title + String(i)}>
                         <CollapsibleTrigger
                           className=" hover:bg-[#E3EAFB] hover:text-[#344054]"
                           asChild
@@ -178,7 +178,7 @@ export function AppSidebar() {
                         </Link>
                       </SidebarMenuButton>
                       {item?.value && (
-                        <SidebarMenuBadge className=" bg-blue-600 rounded-3xl px-2 text-white">
+                        <SidebarMenuBadge className=" bg-blue-600 hover:text-white rounded-3xl px-2 text-white">
                           {item.value}
                         </SidebarMenuBadge>
                       )}
