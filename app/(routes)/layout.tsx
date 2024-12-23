@@ -5,6 +5,7 @@ import {
   SidebarProvider,
   SidebarTrigger,
 } from "@/components/ui/sidebar";
+import toast, { Toaster } from "react-hot-toast";
 import { AppSidebar } from "@/components/app-sidebar";
 import "../globals.css";
 
@@ -43,6 +44,7 @@ export default function RootLayout({
             </main>
           </SidebarInset>
         </SidebarProvider>
+        <Toaster />
       </body>
     </html>
   );

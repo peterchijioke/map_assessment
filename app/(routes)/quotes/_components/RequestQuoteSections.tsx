@@ -3,6 +3,7 @@ import React, { Fragment, useCallback, useEffect, useState } from "react";
 import RequestForQuote from "./RequestForQuote";
 import { useSearchParams } from "next/navigation";
 import TermsAttachments from "./TermsAttachments";
+import ReviewStep from "./ReviewStep";
 
 export default function RequestQuoteSections() {
   const searchParam = useSearchParams();
@@ -15,6 +16,8 @@ export default function RequestQuoteSections() {
         return <RequestForQuote />;
       case SectionEnum.Form2:
         return <TermsAttachments />;
+      case SectionEnum.Form3:
+        return <ReviewStep />;
     }
   }, [currentSection]);
 

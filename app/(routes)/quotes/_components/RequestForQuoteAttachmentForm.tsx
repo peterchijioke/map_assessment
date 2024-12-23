@@ -29,6 +29,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { useRouter } from "next/navigation";
 import attachment, { Attachment } from "@/lib/attachment.zod";
 import { SupportDocumentUploadButton } from "./SupportDocumentUploadButton";
+import { SectionEnum } from "./RequestQuoteSections";
 
 const RequestForQuoteAttachmentForm = () => {
   const form = useForm<Attachment>({
@@ -178,7 +179,7 @@ const RequestForQuoteAttachmentForm = () => {
                       className="  flex-1 border-none shadow-none focus-visible:ring-transparent outline-none"
                       {...field}
                     />
-                    <select className=" rounded-2xl p-1 bg-[#F7F9FC]">
+                    <select className=" rounded-2xl p-1 bg-[#F7F9FC] outline-none focus-visible:ring-transparent">
                       <option value="option1">Days</option>
                       <option value="option2">Week</option>
                       <option value="option3">Month</option>
@@ -207,11 +208,11 @@ const RequestForQuoteAttachmentForm = () => {
             name="image"
             render={({ field }) => (
               <FormItem>
+                <FormLabel>Shipping Method</FormLabel>
                 <FormControl>
                   <SupportDocumentUploadButton
-                    fieldError={errors.image}
-                    onChange={(value: File) => {
-                      form.setValue("image", String(value.name));
+                    onChange={(value) => {
+                      form.setValue("image", String(value));
                     }}
                   />
                 </FormControl>
@@ -224,9 +225,9 @@ const RequestForQuoteAttachmentForm = () => {
         </div>
         <div className=" h-[1px] bg-slate-300" />
 
-        <div className="w-full flex flex-row items-center justify-end gap-5">
+        <div className="w-full flex flex-row items-center justify-start md:justify-end space-x-1 md:space-x-4">
           <Button
-            onClick={() => route.push("/quotes?current=form1")}
+            onClick={() => route.push(`/quotes?current=${SectionEnum.Form1}`)}
             variant={"outline"}
             type="button"
           >
@@ -241,7 +242,7 @@ const RequestForQuoteAttachmentForm = () => {
           </Button>
           <Button
             onClick={() => {
-              // route.push("/quotes?current=form2");
+              route.push(`/quotes?current=${SectionEnum.Form3}`);
             }}
             className=" bg-[#175CFF] text-white hover:text-white"
             variant={"outline"}

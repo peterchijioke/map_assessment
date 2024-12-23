@@ -60,13 +60,13 @@ export function SupportDocumentUploadButton({
   return (
     <div
       className={cn(
-        fieldError ? " border-red-500" : " border-[#D0D5DD] py-8 ",
-        " overflow-hidden rounded-3xl grid gap-2 w-fit border border-dashed"
+        fieldError ? " border-red-500" : " border-[#D0D5DD]   ",
+        " overflow-hidden rounded-2xl grid gap-2 md:w-fit w-full border border-dashed py-8 md:px-14"
       )}
     >
       <div
         {...getRootProps()}
-        className="items-center justify-center flex h-28 dark:bg-background rounded-xl md:px-16 px-5"
+        className="items-center justify-center flex h-28 dark:bg-background "
       >
         <input {...getInputProps()} />
         <div className="grid space-y-2">

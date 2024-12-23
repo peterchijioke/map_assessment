@@ -41,10 +41,10 @@ export default function DashboardQuoteInfoSection() {
                       ? "bg-[#E7F6EC] text-[#0F973D]"
                       : index === 1 && currentSection === SectionEnum.Form2
                       ? "bg-[#175CFF] text-white"
-                      : index === 1 && currentSection !== SectionEnum.Form3
+                      : index === 1 && currentSection === SectionEnum.Form3
                       ? "bg-[#E7F6EC] text-[#0F973D]"
                       : index === 2 && currentSection === SectionEnum.Form3
-                      ? "bg-[#E7F6EC] text-[#0F973D]"
+                      ? "bg-[#175CFF] text-white"
                       : "bg-[#ffffff]  border border-[#98A2B3] text-[#98A2B3]"
                   )}
                 >
