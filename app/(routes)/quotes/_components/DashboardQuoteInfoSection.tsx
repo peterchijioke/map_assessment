@@ -12,7 +12,7 @@ export default function DashboardQuoteInfoSection() {
   const currentSection = useMemo(() => current, [current]);
 
   return (
-    <Card className="shadow-none hidden md:block">
+    <Card className="shadow-none  md:block">
       <CardContent className=" py-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {[
           {
