@@ -47,7 +47,7 @@ const RequestForQuoteAttachmentForm = () => {
           <FormField
             control={control}
             name="paymentTerms"
-            render={({ field }) => (
+            render={({}) => (
               <FormItem>
                 <FormLabel>Payment Terms</FormLabel>
                 <FormControl>
@@ -81,7 +81,7 @@ const RequestForQuoteAttachmentForm = () => {
           <FormField
             control={control}
             name="deliverySchedule"
-            render={({ field }) => (
+            render={({}) => (
               <FormItem>
                 <FormLabel>Delivery Schedule</FormLabel>
                 <FormControl>
@@ -126,7 +126,7 @@ const RequestForQuoteAttachmentForm = () => {
           <FormField
             control={control}
             name="shippingMethod"
-            render={({ field }) => (
+            render={({}) => (
               <FormItem>
                 <FormLabel>Shipping Method</FormLabel>
                 <FormControl>
@@ -201,7 +201,7 @@ const RequestForQuoteAttachmentForm = () => {
           <FormField
             control={control}
             name="image"
-            render={({ field }) => (
+            render={({}) => (
               <FormItem>
                 <FormLabel>Shipping Method</FormLabel>
                 <FormControl>

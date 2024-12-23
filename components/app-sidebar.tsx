@@ -141,8 +141,8 @@ export function AppSidebar() {
                             <ChevronUp className="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-180" />
                           </SidebarMenuButton>
                         </CollapsibleTrigger>
-                        {item.subItems.map((item) => (
-                          <CollapsibleContent>
+                        {item.subItems.map((item, i) => (
+                          <CollapsibleContent key={String(i)}>
                             <SidebarMenuSub>
                               <SidebarMenuSubItem>
                                 <SidebarMenuSubButton

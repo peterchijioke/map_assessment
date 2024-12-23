@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unused-expressions */
+
 "use client";
 import {
   AlertDialog,
@@ -9,25 +11,21 @@ import { Loader } from "lucide-react";
 import { useEffect } from "react";
 import toast from "react-hot-toast";
 export function LoadingModal({ ...props }: AlertDialogProps) {
-  const handleClose = () => {
-    toast.success("RFQ ID sent successfully!", {
-      position: "top-right",
-    });
-    props.onOpenChange && props.onOpenChange(!props.open);
-  };
-
   useEffect(() => {
     if (!props.open) {
       return;
     }
     const timeout = setTimeout(() => {
-      handleClose();
+      toast.success("RFQ ID sent successfully!", {
+        position: "top-right",
+      });
+      props.onOpenChange && props.onOpenChange(!props.open);
     }, 5000);
 
     return () => {
       clearTimeout(timeout);
     };
-  }, [props.open]);
+  }, [props]);
   return (
     <AlertDialog {...props}>
       <AlertDialogContent>

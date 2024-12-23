@@ -1,4 +1,6 @@
+/* eslint-disable @typescript-eslint/no-unused-expressions */
 import { Button } from "@/components/ui/button";
+
 import { ReactNode } from "react";
 import {
   AlertDialog,
@@ -15,7 +17,12 @@ interface Props extends AlertDialogProps {
   onConfirm: () => void;
 }
 
-export function ConfirmationModal({ children, onConfirm, ...props }: Props) {
+export function ConfirmationModal({
+  children,
+  onOpenChange,
+  onConfirm,
+  ...props
+}: Props) {
   return (
     <AlertDialog {...props}>
       {children}
@@ -33,7 +40,7 @@ export function ConfirmationModal({ children, onConfirm, ...props }: Props) {
             type="button"
             variant={"outline"}
             onClick={() => {
-              props.onOpenChange && props.onOpenChange(!props.open);
+              onOpenChange && onOpenChange(!props.open);
             }}
           >
             Cancel

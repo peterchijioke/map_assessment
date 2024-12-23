@@ -12,9 +12,7 @@ import {
 } from "./ui/breadcrumb";
 import { SidebarTrigger } from "./ui/sidebar";
 
-type Props = {};
-
-export default function MainHeader({}: Props) {
+export default function MainHeader() {
   const [isRotated, setIsRotated] = useState(false);
 
   const handleButtonClick = () => {

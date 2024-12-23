@@ -76,7 +76,7 @@ const RequestForQuoteForm = () => {
     formState: { errors },
   } = form;
 
-  const { fields, append, remove } = useFieldArray({
+  const { fields, remove } = useFieldArray({
     control,
     name: "items",
   });
@@ -203,7 +203,7 @@ const RequestForQuoteForm = () => {
                     <FormField
                       control={control}
                       name={`items.${index}.item`}
-                      render={({ field }) => (
+                      render={({}) => (
                         <FormItem>
                           <FormControl>
                             <Select>
@@ -248,7 +248,7 @@ const RequestForQuoteForm = () => {
                     <FormField
                       control={control}
                       name={`items.${index}.variant`}
-                      render={({ field }) => (
+                      render={({}) => (
                         <FormItem>
                           <FormControl>
                             {/* <Input
@@ -327,7 +327,7 @@ const RequestForQuoteForm = () => {
                     <FormField
                       control={control}
                       name={`items.${index}.price`}
-                      render={({ field }) => (
+                      render={({}) => (
                         <FormItem>
                           <FormControl>
                             <Input
@@ -371,7 +371,7 @@ const RequestForQuoteForm = () => {
                     <FormField
                       control={control}
                       name={`items.${index}.amount`}
-                      render={({ field }) => (
+                      render={({}) => (
                         <FormItem>
                           <FormControl>
                             <Input
