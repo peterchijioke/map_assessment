@@ -5,7 +5,7 @@ import RequestForQuoteForm from "./RequestForQuoteForm";
 
 export default function RequestForQuote() {
   return (
-    <Card className="shadow-none  md:block ">
+    <Card className="shadow-none hidden md:block ">
       <CardContent className=" w-full py-8">
         <div className=" grid gap-2">
           <span className="truncate text-xl font-semibold text-black">
