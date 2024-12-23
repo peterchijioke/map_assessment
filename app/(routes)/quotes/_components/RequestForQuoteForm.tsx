@@ -26,6 +26,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
+import { useRouter } from "next/navigation";
 
 const RequestForQuoteForm = () => {
   const form = useForm<RequestForQuote>({
@@ -85,7 +86,7 @@ const RequestForQuoteForm = () => {
   const onSubmit = (data: RequestForQuote) => {
     console.log(data);
   };
-
+  const route = useRouter();
   return (
     <Form {...form}>
       <form onSubmit={handleSubmit(onSubmit)} className="w-full space-y-6 my-8">
@@ -439,6 +440,9 @@ const RequestForQuoteForm = () => {
             Save as draft
           </Button>
           <Button
+            onClick={() => {
+              route.push("/quotes?current=form2");
+            }}
             className=" bg-[#175CFF] text-white hover:text-white"
             variant={"outline"}
             type="button"

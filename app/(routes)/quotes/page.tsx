@@ -3,6 +3,8 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import DashboardQuoteTopSection from "./_components/DashboardQuoteTopSection";
 import DashboardQuoteInfoSection from "./_components/DashboardQuoteInfoSection";
 import RequestForQuote from "./_components/RequestForQuote";
+import { useEffect } from "react";
+import RequestQuoteSections from "./_components/RequestQuoteSections";
 
 export default function Page() {
   return (
@@ -12,7 +14,7 @@ export default function Page() {
         <div className="flex flex-1 flex-col gap-8 container mx-auto p-4">
           <DashboardQuoteTopSection />
           <DashboardQuoteInfoSection />
-          <RequestForQuote />
+          <RequestQuoteSections />
         </div>
       </ScrollArea>
     </div>
