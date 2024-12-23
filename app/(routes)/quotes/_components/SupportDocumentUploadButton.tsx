@@ -8,11 +8,8 @@ import { FieldError } from "react-hook-form";
 
 export function SupportDocumentUploadButton({
   fieldError,
-  trash,
   onChange,
-  ...props
 }: {
-  trash?: boolean;
   fieldError?: FieldError | undefined;
   onChange: (e: File) => void;
 }) {

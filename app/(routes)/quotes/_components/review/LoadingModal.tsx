@@ -8,8 +8,7 @@ import { AlertDialogProps } from "@radix-ui/react-alert-dialog";
 import { Loader } from "lucide-react";
 import { useEffect } from "react";
 import toast from "react-hot-toast";
-interface Props extends AlertDialogProps {}
-export function LoadingModal({ ...props }: Props) {
+export function LoadingModal({ ...props }: AlertDialogProps) {
   const handleClose = () => {
     toast.success("RFQ ID sent successfully!", {
       position: "top-right",
