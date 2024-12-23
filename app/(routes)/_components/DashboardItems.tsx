@@ -1,7 +1,5 @@
-import CustomImage from "@/components/CustomImage";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Card, CardContent } from "@/components/ui/card";
-import React, { Fragment } from "react";
+import React from "react";
 import { CustomTable } from "./CustomTable";
 
 export default function DashboardItems() {

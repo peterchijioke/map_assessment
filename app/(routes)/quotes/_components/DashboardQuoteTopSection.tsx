@@ -4,10 +4,8 @@ import {
   BreadcrumbItem,
   BreadcrumbLink,
   BreadcrumbSeparator,
-  BreadcrumbPage,
 } from "@/components/ui/breadcrumb";
-import { Button } from "@/components/ui/button";
-import { Slash, X } from "lucide-react";
+import { Slash } from "lucide-react";
 import React from "react";
 
 export default function DashboardQuoteTopSection() {

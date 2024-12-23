@@ -8,14 +8,12 @@ import requestForQuoteSchema, { RequestForQuote } from "@/lib/quote.zod";
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-import { Separator } from "@radix-ui/react-separator";
-import { Trash, Trash2 } from "lucide-react";
+import { Trash2 } from "lucide-react";
 import {
   Select,
   SelectContent,

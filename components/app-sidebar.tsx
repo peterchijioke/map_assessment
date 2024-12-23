@@ -21,7 +21,7 @@ import {
 } from "./ui/collapsible";
 import Link from "next/link";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
-import { ChevronRight, ChevronUp, LogOut } from "lucide-react";
+import { ChevronUp, LogOut } from "lucide-react";
 
 interface SidebarItem {
   title: string;

@@ -1,10 +1,9 @@
 "use client";
 import { useState } from "react";
-import { ChevronDown, ChevronLeft, ChevronUp, Search } from "lucide-react";
+import { ChevronDown, ChevronLeft, Search } from "lucide-react";
 import { Input } from "./ui/input";
 import CustomImage from "./CustomImage";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
-import { Button } from "./ui/button";
 import {
   Breadcrumb,
   BreadcrumbList,

@@ -1,7 +1,7 @@
 import CustomImage from "@/components/CustomImage";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { File, Loader, Recycle, Trash2 } from "lucide-react";
+import { Loader } from "lucide-react";
 import React, { useCallback, useState } from "react";
 import { useDropzone } from "react-dropzone";
 import { FieldError } from "react-hook-form";

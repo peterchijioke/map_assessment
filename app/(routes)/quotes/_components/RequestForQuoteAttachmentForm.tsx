@@ -1,21 +1,17 @@
 "use client";
 import React from "react";
-import { useForm, useFieldArray } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import requestForQuoteSchema, { RequestForQuote } from "@/lib/quote.zod";
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-import { Separator } from "@radix-ui/react-separator";
-import { Trash, Trash2 } from "lucide-react";
 import {
   Select,
   SelectContent,
@@ -25,7 +21,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Textarea } from "@/components/ui/textarea";
 import { useRouter } from "next/navigation";
 import attachment, { Attachment } from "@/lib/attachment.zod";
 import { SupportDocumentUploadButton } from "./SupportDocumentUploadButton";

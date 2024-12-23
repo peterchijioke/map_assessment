@@ -1,13 +1,7 @@
 "use client";
 
-import {
-  ChevronDown,
-  ChevronRight,
-  ChevronsRight,
-  ChevronsUpDown,
-} from "lucide-react";
+import { ChevronDown } from "lucide-react";
 
-import { Button } from "@/components/ui/button";
 import {
   Collapsible,
   CollapsibleContent,
@@ -15,10 +9,8 @@ import {
 } from "@/components/ui/collapsible";
 
 import CustomImage from "@/components/CustomImage";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Card, CardContent } from "@/components/ui/card";
-import React, { Fragment } from "react";
-import { CustomTable } from "./CustomTable";
+import React from "react";
 
 export default function TermsAttachments() {
   const [isOpen, setIsOpen] = React.useState(false);

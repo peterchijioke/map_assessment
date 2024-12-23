@@ -1,9 +1,6 @@
-import CustomImage from "@/components/CustomImage";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Card, CardContent } from "@/components/ui/card";
 
-import React, { Fragment } from "react";
-import RequestForQuoteForm from "./RequestForQuoteForm";
+import React from "react";
 import RequestForQuoteAttachmentForm from "./RequestForQuoteAttachmentForm";
 
 export default function TermsAttachments() {

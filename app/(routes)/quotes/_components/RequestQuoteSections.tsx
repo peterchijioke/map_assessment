@@ -1,5 +1,5 @@
 "use client";
-import React, { Fragment, useCallback, useEffect, useState } from "react";
+import React, { Fragment, useCallback } from "react";
 import RequestForQuote from "./RequestForQuote";
 import { useSearchParams } from "next/navigation";
 import TermsAttachments from "./TermsAttachments";
